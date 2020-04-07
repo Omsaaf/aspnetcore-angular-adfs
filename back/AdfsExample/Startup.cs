@@ -25,12 +25,13 @@ namespace AdfsExample
             services.AddAuthentication("Bearer")
                 .AddJwtBearer(options =>
                 {
-                    options.Authority = "https://YOUR_SERVER/adfs";
-                    options.Audience = "microsoft:identityserver:YOUR_CLIENT_ID";
+                    options.Authority = "https://testadfs2.adfs.3dsemantix.com/adfs";
+                    options.Audience = "https://localhost:44320/";
+                    //options.Audience = "microsoft:identityserver:090888c3-f4fd-4b12-91b7-9691787c21e3";
                     options.RequireHttpsMetadata = false;
                     options.TokenValidationParameters = new TokenValidationParameters()
                     {
-                        ValidIssuer = "http://YOUR_SERVER/adfs/services/trust"
+                        ValidIssuer = "http://TestADFS2.adfs.3dsemantix.com/adfs/services/trust"//"https://testadfs2.adfs.3dsemantix.com/adfs/services/trust"
                     };
                     options.Events = new JwtBearerEvents
                     {
